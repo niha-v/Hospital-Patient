@@ -4,6 +4,7 @@ Project Description
 This data engineering pipeline processes hospital patient and claims data from multiple sources (Hospital A and B), transforming raw healthcare records into structured, analytics-ready datasets. The system handles diverse medical data types including patient encounters, CPT-coded procedures, departmental workflows, provider details, insurance claims, and financial transactions.
 
 The pipeline follows a multi-layered architecture (Bronze → Silver → Gold) to ensure data reliability and usability:
+![Image 1](https://github.com/niha-v/Hospital-Patient/blob/main/Architecture%20-%20hospital%20patient.png)
 
 Bronze Layer (Raw): Ingests heterogeneous data formats (CSV, JSON) and standardizes schemas while preserving raw fidelity.
 
@@ -53,6 +54,11 @@ Transformations Applied
   - Ensure patient_id, provider_id, claim_id are NOT NULL.
   - Validate insurance coverage values (e.g., active = True/False).
 
+  ### Raw Layer 
+![Image](https://github.com/niha-v/Hospital-Patient/blob/main/Screenshot%202025-04-07%20103220.png)
+
+
+
 ### 2. Staging Layer (Silver) – Cleaning & Enrichment
 Source: Bronze Layer (Azure Blob Storage).
 Destination: SQL Server (via SSIS).
@@ -90,7 +96,9 @@ Transformations Applied
 - *Analytics Optimizations*:
   - Create fact/dimension tables (star schema).
   - Pre-calculate KPIs (e.g., avg. claim processing time).
-
+    
+ ### The complete Pipeline from Raw to Curated Layer 
+![Image 2](https://github.com/niha-v/Hospital-Patient/blob/main/raw%20to%20curated)
 
 ## Technology Stack
 ### Layer	       |   Tools
